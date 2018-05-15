@@ -18,6 +18,6 @@ public class Tests {
         assertEquals(2+6, game.getFrameAt(0).getScore());
 
         game.addFrame(0, 9);
-        assertEquals(2+6, game.getFrameAt(0).getScore());
+        assertEquals(9, game.getFrameAt(1).getScore());
     }
 }
