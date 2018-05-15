@@ -5,6 +5,7 @@ class Frame {
     private int[] bowling_throws;
 
     private int remainingPins;
+    private int score;
 
     Frame(int throw1, int throw2) throws Exception{
         bowling_throws = new int[MAX_THROWS];
@@ -16,6 +17,12 @@ class Frame {
 
         bowling_throws[0] = throw1;
         bowling_throws[1] = throw2;
+
+        this.score = this.calculateScore(throw1, throw2);
+    }
+
+    private int calculateScore(int throw1, int throw2) {
+        return throw1 + throw2;
     }
 
     private boolean validateThrows(int throw1, int throw2) {
@@ -29,5 +36,9 @@ class Frame {
 
     int getThrowAt(int idx) {
         return this.bowling_throws[idx];
+    }
+
+    public int getScore() {
+        return this.score;
     }
 }
