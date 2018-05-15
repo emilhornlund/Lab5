@@ -25,4 +25,8 @@ class Game {
     Frame getFrameAt(int index) {
         return this.frames.get(index);
     }
+
+    int getNrOfFrames () {
+        return this.frames.size();
+    }
 }
