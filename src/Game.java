@@ -20,9 +20,13 @@ class Game {
             return false;
         }
 
-        this.totalScore += this.frames.get(this.frames.size() - 1).getScore();
+        this.calculateTotalScore();
 
         return true;
+    }
+
+    private void calculateTotalScore() {
+        this.totalScore += this.frames.get(this.frames.size() - 1).getScore();
     }
 
     Frame getFrameAt(int index) {
