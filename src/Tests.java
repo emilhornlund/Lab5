@@ -36,6 +36,8 @@ public class Tests {
         game.addFrame(8, 1);
         game.addFrame(2, 6);
 
+        game.addFrame(0, 0);
+
         assertEquals(10, game.getNrOfFrames());
     }
 }

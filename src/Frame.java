@@ -38,7 +38,7 @@ class Frame {
         return this.bowling_throws[idx];
     }
 
-    public int getScore() {
+    int getScore() {
         return this.score;
     }
 }
