@@ -1,14 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Game {
+class Game {
     private List<Frame> frames;
 
-    public Game() {
+    Game() {
         frames = new ArrayList<>();
     }
 
-    public boolean addFrame(int throw1, int throw2) {
+    boolean addFrame(int throw1, int throw2) {
         if(this.frames.size() == 10) {
             return false;
         }
@@ -22,7 +22,7 @@ public class Game {
         return true;
     }
 
-    public Frame getFrameAt(int index) {
+    Frame getFrameAt(int index) {
         return this.frames.get(index);
     }
 }
