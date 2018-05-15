@@ -27,6 +27,10 @@ class Game {
 
     private void calculateTotalScore() {
         this.totalScore += this.frames.get(this.frames.size() - 1).getScore();
+
+        if (this.frames.get(this.frames.size() - 1).isStrike()) {
+            this.totalScore += 10;
+        }
     }
 
     Frame getFrameAt(int index) {
