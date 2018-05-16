@@ -130,4 +130,20 @@ public class Tests {
 
         assertEquals(103, game.getTotalScore());
     }
+
+    @Test
+    public void multipleSpareTest() {
+        Game game = new Game();
+
+        game.addFrame(8,2);
+        game.addFrame(5,5);
+        game.addFrame(4,4);
+        game.addFrame(5,3);
+        game.addFrame(3,3);
+        game.addFrame(4,5);
+        game.addFrame(8,1);
+        game.addFrame(2,6);
+
+        assertEquals(98, game.getTotalScore());
+    }
 }
