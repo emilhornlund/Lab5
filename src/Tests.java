@@ -40,7 +40,7 @@ public class Tests {
         game.addFrame(8, 1);
         game.addFrame(2, 6);
 
-        game.addFrame(0, 0);
+        game.addFrame(0, 0); // Will not be added
 
         assertEquals(10, game.getNrOfFrames());
     }
@@ -141,6 +141,7 @@ public class Tests {
     }
 
     @Test
+    //@Ignore
     public void multipleSpareTest() {
         Game game = new Game();
 
@@ -156,5 +157,26 @@ public class Tests {
         game.addFrame(2,6);
 
         assertEquals(98, game.getTotalScore());
+    }
+
+    @Test
+    //@Ignore
+    public void lastSpareTest () {
+        Game game = new Game();
+
+        game.addFrame(1,5);
+        game.addFrame(3,6);
+        game.addFrame(7,2);
+        game.addFrame(3,6);
+        game.addFrame(4,4);
+        game.addFrame(5,3);
+        game.addFrame(3,3);
+        game.addFrame(4,5);
+        game.addFrame(8,1);
+        game.addFrame(2,8);
+
+        game.addFrame(7);
+
+        assertEquals(90, game.getTotalScore());
     }
 }
