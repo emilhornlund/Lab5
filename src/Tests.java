@@ -200,4 +200,24 @@ public class Tests {
 
         assertEquals(92, game.getTotalScore());
     }
+
+    @Test
+    public void bonusStrikeTest() {
+        Game game = new Game();
+
+        game.addFrame(1,5);
+        game.addFrame(3,6);
+        game.addFrame(7,2);
+        game.addFrame(3,6);
+        game.addFrame(4,4);
+        game.addFrame(5,3);
+        game.addFrame(3,3);
+        game.addFrame(4,5);
+        game.addFrame(8,1);
+        game.addFrame(2,8);
+
+        game.addFrame(10,0);
+
+        assertEquals(93, game.getTotalScore());
+    }
 }
