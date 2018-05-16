@@ -1,6 +1,6 @@
 class Frame {
-    static final int MAX_THROWS = 2;
-    static final int MAX_PINS = 10;
+    private static final int MAX_THROWS = 2;
+    private static final int MAX_PINS = 10;
 
     private int[] bowling_throws;
 
@@ -11,47 +11,19 @@ class Frame {
     private boolean spare;
     private boolean extraThrow;
 
-    Frame (int throw1, int throw2) throws Exception{
+    Frame(int throw1, int throw2, final boolean isBonusFrame) throws Exception {
         this.bowling_throws = new int[MAX_THROWS];
         this.remainingPins = MAX_PINS;
 
         this.strike = false;
         this.spare = false;
-        this.extraThrow = false;
+        this.extraThrow = isBonusFrame;
 
-        if (!this.validateThrows(throw1, throw2)) {
-            throw new Exception("Invalid scores!");
+        if (!isBonusFrame) {
+            if (!this.validateThrows(throw1, throw2)) {
+                throw new Exception("Invalid scores!");
+            }
         }
-
-        this.bowling_throws[0] = throw1;
-        this.bowling_throws[1] = throw2;
-
-        this.checkIfStrike(throw1);
-
-        this.score = this.calculateScore(throw1, throw2);
-    }
-
-    Frame (int extraThrow) {
-        this.bowling_throws = new int[MAX_THROWS];
-        this.remainingPins = MAX_PINS;
-
-        this.strike = false;
-        this.spare = false;
-        this.extraThrow = true;
-
-        this.bowling_throws[0] = extraThrow;
-        this.bowling_throws[1] = 0;
-
-        this.score = extraThrow;
-    }
-
-    Frame (int throw1, int throw2, boolean bonusStrike) throws Exception{
-        this.bowling_throws = new int[MAX_THROWS];
-        this.remainingPins = MAX_PINS;
-
-        this.strike = false;
-        this.spare = false;
-        this.extraThrow = true;
 
         this.bowling_throws[0] = throw1;
         this.bowling_throws[1] = throw2;
@@ -84,16 +56,13 @@ class Frame {
     }
 
     private void checkIfStrike(int throw1) {
-        if(throw1 == 10)
+        if (throw1 == 10) {
             this.strike = true;
+        }
     }
 
     int getThrowAt(int idx) {
         return this.bowling_throws[idx];
-    }
-
-    void setSecondThrowToTenOnExtraThrow() {
-        this.bowling_throws[1] = 10;
     }
 
     int getScore() {
@@ -104,6 +73,10 @@ class Frame {
         return this.strike;
     }
 
+    void setStrike(final boolean strike) {
+        this.strike = strike;
+    }
+
     boolean isSpare() {
         return this.spare;
     }
@@ -112,7 +85,7 @@ class Frame {
         return this.extraThrow;
     }
 
-    void setIsExtraThrow(boolean extraThrow) {
+    void setIsExtraThrow(final boolean extraThrow) {
         this.extraThrow = extraThrow;
     }
 }

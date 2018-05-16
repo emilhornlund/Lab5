@@ -6,7 +6,7 @@ class Game {
     private int totalScore;
 
     Game() {
-        frames = new ArrayList<>();
+        this.frames = new ArrayList<>();
     }
 
     boolean addFrame(int throw1, int throw2) {
@@ -15,11 +15,7 @@ class Game {
         }
 
         try {
-            if(frames.size() == 10 && throw1 == 10 && throw2 == 10) {
-                frames.add(new Frame(throw1, throw2, true));
-            } else {
-                frames.add(new Frame(throw1, throw2));
-            }
+            this.frames.add(new Frame(throw1, throw2, (frames.size() == 10 && throw1 == 10 && throw2 == 10)));
         } catch (Exception e) {
             return false;
         }
@@ -38,7 +34,12 @@ class Game {
             return false;
         }
 
-        frames.add(new Frame(extraThrow));
+        try {
+            this.frames.add(new Frame(extraThrow, 0, true));
+            this.frames.get(this.frames.size() - 1).setStrike(false);
+        } catch (Exception e) {
+            return false;
+        }
 
         this.calculateTotalScore();
 
