@@ -202,6 +202,7 @@ public class Tests {
     }
 
     @Test
+    //@Ignore
     public void bonusStrikeTest() {
         Game game = new Game();
 
@@ -216,7 +217,7 @@ public class Tests {
         game.addFrame(8,1);
         game.addFrame(2,8);
 
-        game.addFrame(10,0);
+        game.addFrame(10);
 
         assertEquals(93, game.getTotalScore());
     }
