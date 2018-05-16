@@ -28,8 +28,12 @@ class Game {
     private void calculateTotalScore() {
         this.totalScore += this.frames.get(this.frames.size() - 1).getScore();
 
-        if (this.frames.get(this.frames.size() - 1).isStrike()) {
-            this.totalScore += 10;
+        if(this.frames.size() > 1) {
+            if (this.frames.get(this.frames.size() - 2).isStrike()) {
+                this.totalScore += 10;
+            } else if (this.frames.get(this.frames.size() - 2).isSpare()) {
+                this.totalScore += this.frames.get(this.frames.size() - 1).getThrowAt(0);
+            }
         }
     }
 

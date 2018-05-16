@@ -6,11 +6,16 @@ class Frame {
 
     private int remainingPins;
     private int score;
+
     private boolean strike;
+    private boolean spare;
 
     Frame(int throw1, int throw2) throws Exception{
         this.bowling_throws = new int[MAX_THROWS];
         this.remainingPins = MAX_PINS;
+
+        this.strike = false;
+        this.spare = false;
 
         if (!this.validateThrows(throw1, throw2)) {
             throw new Exception("Invalid scores!");
@@ -25,6 +30,10 @@ class Frame {
     }
 
     private int calculateScore(int throw1, int throw2) {
+        if(throw1 + throw2 == 10) {
+            this.spare = true;
+        }
+
         return throw1 + throw2;
     }
 
@@ -57,5 +66,9 @@ class Frame {
 
     boolean isStrike() {
         return this.strike;
+    }
+
+    boolean isSpare() {
+        return this.spare;
     }
 }
