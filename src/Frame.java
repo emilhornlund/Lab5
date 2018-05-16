@@ -91,4 +91,8 @@ class Frame {
     boolean isExtraThrow() {
         return this.extraThrow;
     }
+
+    void setIsExtraThrow(boolean extraThrow) {
+        this.extraThrow = extraThrow;
+    }
 }

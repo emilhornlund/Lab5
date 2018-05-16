@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class Tests {
     @Test
-    //@Ignore
+    @Ignore
     public void knockedDownPinsTest() {
         Game game = new Game();
         assertTrue(game.addFrame(2, 4));
@@ -13,7 +13,7 @@ public class Tests {
     }
 
     @Test
-    //@Ignore
+    @Ignore
     public void sumOfFrameScoreTest() {
         Game game = new Game();
 
@@ -25,7 +25,7 @@ public class Tests {
     }
 
     @Test
-    //@Ignore
+    @Ignore
     public void numberOfFramesTest() {
         Game game = new Game();
 
@@ -46,7 +46,7 @@ public class Tests {
     }
 
     @Test
-    //@Ignore
+    @Ignore
     public void gameScoreTest() {
         Game game = new Game();
 
@@ -65,7 +65,7 @@ public class Tests {
     }
 
     @Test
-    //@Ignore
+    @Ignore
     public void strikeTest() {
         Game game = new Game();
 
@@ -84,7 +84,7 @@ public class Tests {
     }
 
     @Test
-    //@Ignore
+    @Ignore
     public void spareTest() {
         Game game = new Game();
 
@@ -103,9 +103,10 @@ public class Tests {
     }
 
     @Test
-    //@Ignore
+    @Ignore
     public void multipleStrikesTest() {
         Game game = new Game();
+
 
         game.addFrame(10, 0);
         game.addFrame(10, 0);
@@ -122,7 +123,7 @@ public class Tests {
     }
 
     @Test
-    //@Ignore
+    @Ignore
     public void strikeAndSpareTest() {
         Game game = new Game();
 
@@ -141,7 +142,7 @@ public class Tests {
     }
 
     @Test
-    //@Ignore
+    @Ignore
     public void multipleSpareTest() {
         Game game = new Game();
 
@@ -160,7 +161,7 @@ public class Tests {
     }
 
     @Test
-    //@Ignore
+    @Ignore
     public void lastSpareTest () {
         Game game = new Game();
 
