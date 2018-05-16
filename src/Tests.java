@@ -4,8 +4,6 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 public class Tests {
-
-    /*
     @Test
     //@Ignore
     public void knockedDownPinsTest() {
@@ -198,7 +196,7 @@ public class Tests {
         game.addFrame(8,1);
         game.addFrame(10,0);
 
-        game.addFrame(7, 2); // Extra throw after strike
+        game.addFrame(7,2); // Extra throw after strike
 
         assertEquals(92, game.getTotalScore());
     }
@@ -244,7 +242,7 @@ public class Tests {
 
         assertEquals(93, game.getTotalScore());
     }
-    */
+
     @Test
     //@Ignore
     public void bestScoreTest () {
@@ -261,7 +259,7 @@ public class Tests {
         game.addFrame(10,0);
         game.addFrame(10,0);
 
-        game.addFrame(10,0);
+        game.addFrame(10, 10);
 
         assertEquals(300, game.getTotalScore());
     }

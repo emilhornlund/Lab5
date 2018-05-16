@@ -45,6 +45,22 @@ class Frame {
         this.score = extraThrow;
     }
 
+    Frame (int throw1, int throw2, boolean bonusStrike) throws Exception{
+        this.bowling_throws = new int[MAX_THROWS];
+        this.remainingPins = MAX_PINS;
+
+        this.strike = false;
+        this.spare = false;
+        this.extraThrow = true;
+
+        this.bowling_throws[0] = throw1;
+        this.bowling_throws[1] = throw2;
+
+        this.checkIfStrike(throw1);
+
+        this.score = this.calculateScore(throw1, throw2);
+    }
+
     private int calculateScore(int throw1, int throw2) {
         if(throw1 + throw2 == 10) {
             this.spare = true;
@@ -74,6 +90,10 @@ class Frame {
 
     int getThrowAt(int idx) {
         return this.bowling_throws[idx];
+    }
+
+    void setSecondThrowToTenOnExtraThrow() {
+        this.bowling_throws[1] = 10;
     }
 
     int getScore() {
