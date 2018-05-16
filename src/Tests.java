@@ -204,22 +204,42 @@ public class Tests {
     @Test
     //@Ignore
     public void realGameTest () {
-        Game game = new Game();
+        Game game1 = new Game();
 
-        game.addFrame(6, 3);
-        game.addFrame(7, 1);
-        game.addFrame(8, 2);
-        game.addFrame(7, 2);
-        game.addFrame(10, 0);
-        game.addFrame(6, 2);
-        game.addFrame(7, 3);
-        game.addFrame(10, 0);
-        game.addFrame(8, 0);
-        game.addFrame(7, 3);
+        game1.addFrame(6, 3);
+        game1.addFrame(7, 1);
+        game1.addFrame(8, 2);
+        game1.addFrame(7, 2);
+        game1.addFrame(10, 0);
+        game1.addFrame(6, 2);
+        game1.addFrame(7, 3);
+        game1.addFrame(10, 0);
+        game1.addFrame(8, 0);
+        game1.addFrame(7, 3);
 
-        game.addFrame(10); // Extra throw after strike
+        game1.addFrame(10); // Extra throw after strike
 
-        assertEquals(135, game.getTotalScore());
+        assertEquals(135, game1.getTotalScore());
+
+        /**
+         * Tests that doing two extra bonus throws after a strike is not possible.
+         */
+        Game game2 = new Game();
+
+        game2.addFrame(6,3);
+        game2.addFrame(7,1);
+        game2.addFrame(8,2);
+        game2.addFrame(7,2);
+        game2.addFrame(10,0);
+        game2.addFrame(6,2);
+        game2.addFrame(7,3);
+        game2.addFrame(10,0);
+        game2.addFrame(8,0);
+        game2.addFrame(10,0);
+
+        game2.addFrame(7,2); //this should not be possible, ignore frame
+
+        assertEquals(125, game2.getTotalScore());
     }
 
     @Test
