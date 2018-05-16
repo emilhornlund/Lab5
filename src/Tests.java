@@ -242,4 +242,25 @@ public class Tests {
 
         assertEquals(93, game.getTotalScore());
     }
+
+    @Test
+    //@Ignore
+    public void bestScoreTest () {
+        Game game = new Game();
+
+        game.addFrame(10,0);
+        game.addFrame(10,0);
+        game.addFrame(10,0);
+        game.addFrame(10,0);
+        game.addFrame(10,0);
+        game.addFrame(10,0);
+        game.addFrame(10,0);
+        game.addFrame(10,0);
+        game.addFrame(10,0);
+        game.addFrame(10,0);
+
+        game.addFrame(10,0);
+
+        assertEquals(300, game.getTotalScore());
+    }
 }
