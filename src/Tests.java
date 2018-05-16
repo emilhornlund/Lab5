@@ -112,4 +112,22 @@ public class Tests {
 
         assertEquals(112, game.getTotalScore());
     }
+
+    @Test
+    public void strikeAndSpareTest() {
+        Game game = new Game();
+
+        game.addFrame(10,0);
+        game.addFrame(4,6);
+        game.addFrame(7,2);
+        game.addFrame(3,6);
+        game.addFrame(4,4);
+        game.addFrame(5,3);
+        game.addFrame(3,3);
+        game.addFrame(4,5);
+        game.addFrame(8,1);
+        game.addFrame(2,6);
+
+        assertEquals(103, game.getTotalScore());
+    }
 }
