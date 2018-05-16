@@ -1,9 +1,11 @@
 import static org.junit.Assert.*;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class Tests {
     @Test
+    //@Ignore
     public void knockedDownPinsTest() {
         Game game = new Game();
         assertTrue(game.addFrame(2, 4));
@@ -11,6 +13,7 @@ public class Tests {
     }
 
     @Test
+    //@Ignore
     public void sumOfFrameScoreTest() {
         Game game = new Game();
 
@@ -22,6 +25,7 @@ public class Tests {
     }
 
     @Test
+    //@Ignore
     public void numberOfFramesTest() {
         Game game = new Game();
 
@@ -42,6 +46,7 @@ public class Tests {
     }
 
     @Test
+    //@Ignore
     public void gameScoreTest() {
         Game game = new Game();
 
@@ -60,6 +65,7 @@ public class Tests {
     }
 
     @Test
+    //@Ignore
     public void strikeTest() {
         Game game = new Game();
 
@@ -74,10 +80,11 @@ public class Tests {
         game.addFrame(8, 1);
         game.addFrame(2, 6);
 
-        assertEquals(95, game.getTotalScore());
+        assertEquals(94, game.getTotalScore());
     }
 
     @Test
+    //@Ignore
     public void spareTest() {
         Game game = new Game();
 
@@ -96,6 +103,7 @@ public class Tests {
     }
 
     @Test
+    //@Ignore
     public void multipleStrikesTest() {
         Game game = new Game();
 
@@ -114,6 +122,7 @@ public class Tests {
     }
 
     @Test
+    //@Ignore
     public void strikeAndSpareTest() {
         Game game = new Game();
 

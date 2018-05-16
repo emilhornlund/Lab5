@@ -26,13 +26,44 @@ class Game {
     }
 
     private void calculateTotalScore() {
-        this.totalScore += this.frames.get(this.frames.size() - 1).getScore();
+        if(!this.frames.get(this.frames.size() - 1).isStrike()) {
+            this.totalScore += this.frames.get(this.frames.size() - 1).getScore();
+        }
 
         if(this.frames.size() > 1) {
             if (this.frames.get(this.frames.size() - 2).isStrike()) {
-                this.totalScore += 10;
+
+                // Count the numer of strikes backward
+                int index = this.frames.size() - 2;
+                while (this.frames.get(index).isStrike() && index > 0) { index--; }
+                
+                if((this.frames.size() - 2) - index > 0) { // If number of strikes is more than one
+
+                    // Loop thru every frame and calculate the score
+                    int scoreToAdd = 0;
+                    while (this.frames.get(index).isStrike() && index < this.frames.size() - 1) {
+                        // Get first score of every frame three times ahead for every strikes except the last one.
+                        for (int i = index; i < 3 && i < this.frames.size(); i++) {
+                            scoreToAdd += this.frames.get(i).getThrowAt(0);
+                        }
+                        index++;
+                    }
+
+                    // Add the second throw to the last strike
+                    scoreToAdd += this.frames.get(this.frames.size() - 1).getThrowAt(1);
+                    this.totalScore += scoreToAdd;
+                } else {                                  // Only one strike
+
+                    if(!this.frames.get(this.frames.size() - 1).isStrike()) {
+                        this.totalScore += this.frames.get(this.frames.size() - 1).getScore();
+                        this.totalScore += 10;
+                    }
+
+                }
             } else if (this.frames.get(this.frames.size() - 2).isSpare()) {
+
                 this.totalScore += this.frames.get(this.frames.size() - 1).getThrowAt(0);
+
             }
         }
     }
