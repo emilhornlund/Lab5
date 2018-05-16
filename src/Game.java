@@ -4,7 +4,7 @@ import java.util.List;
 class Game {
     private List<Frame> frames;
     private int totalScore;
-    int test = 0;
+    //int test = 0;
 
     Game() {
         frames = new ArrayList<>();
@@ -44,11 +44,18 @@ class Game {
 
     private void calculateTotalScore() {
 
-        test += frames.get(frames.size() - 1).getScore();
-        System.out.println("Test: " + test);
+        //test += frames.get(frames.size() - 1).getScore();
+        //System.out.println("Test: " + test);
+
+        //System.out.println("Strike: " + frames.get(frames.size() - 1).isStrike());
+        //System.out.println("Index: " + (frames.size() - 1));
 
         if(!this.frames.get(this.frames.size() - 1).isStrike()) {
             this.totalScore += this.frames.get(this.frames.size() - 1).getScore();
+        }
+
+        if(this.frames.get(this.frames.size() - 1).isStrike() && this.frames.size() == 10) {
+            this.totalScore += 10;
         }
 
         if(this.frames.size() > 1) {
@@ -65,42 +72,46 @@ class Game {
             }
         }
 
-        System.out.println("Total: " + this.totalScore + "\n");
+        //System.out.println("Total: " + this.totalScore + "\n");
     }
 
     private int calculateScoreToAddAfterStrikes(int index) {
         int scoreToAdd = 0;
+        //System.out.println("Går du in här?");
 
         if((this.frames.size() - 2) - index > 0) {                                                                      // If number of strikes is more than one
             //System.out.println("Index: " + index);
             //System.out.println("Size: " + (frames.size()));
             //System.out.println(this.frames.get(index).isStrike());
+            //System.out.println("Tweet");
 
             // Loop thru every frame and calculate the score
             while (this.frames.get(index).isStrike() && index < this.frames.size()) {
                 // Get first score of every frame three times ahead for every strikes except the last one.
                 for (int i = index; i <= 3 && i < this.frames.size(); i++) {
                     scoreToAdd += this.frames.get(i).getThrowAt(0);
-                    System.out.println(this.frames.get(i).getThrowAt(0));
+                    //System.out.println(this.frames.get(i).getThrowAt(0));
                 }
                 index++;
             }
 
+            //System.out.println("This");
             // Add the second throw to the last strike
             scoreToAdd += this.frames.get(this.frames.size() - 1).getThrowAt(1);
 
         } else {                                                                                                        // Only one strike
             if(!this.frames.get(this.frames.size() - 1).isStrike()) {
-                scoreToAdd += this.frames.get(this.frames.size() - 1).getScore();
+                //System.out.println("asdasdf");
 
                 if(!this.frames.get(this.frames.size() - 1).isExtraThrow()) {
+                    scoreToAdd += this.frames.get(this.frames.size() - 1).getScore();
                     scoreToAdd += 10;
                 }
             }
 
         }
 
-        System.out.println(scoreToAdd);
+        //System.out.println(scoreToAdd);
 
         return scoreToAdd;
     }
