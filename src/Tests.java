@@ -291,27 +291,45 @@ public class Tests {
         game.addFrame(7,2); // Extra throw after strike
 
         assertEquals(92, game.getTotalScore());
+
+        //Test number of bonus throws
+        Game game2 = new Game();
+
+        game2.addFrame(1,5);
+        game2.addFrame(3,6);
+        game2.addFrame(7,2);
+        game2.addFrame(3,6);
+        game2.addFrame(4,4);
+        game2.addFrame(5,3);
+        game2.addFrame(3,3);
+        game2.addFrame(4,5);
+        game2.addFrame(8,1);
+        game2.addFrame(10,2);
+
+        game2.addFrame(7,2); //this should not be possible, ignore frame
+
+        assertEquals(10, game2.getNrOfFrames());
     }
 
     @Test
     //@Ignore
     public void realGameTest () {
-        Game game = new Game();
+        Game game1 = new Game();
 
-        game.addFrame(6, 3);
-        game.addFrame(7, 1);
-        game.addFrame(8, 2);
-        game.addFrame(7, 2);
-        game.addFrame(10, 0);
-        game.addFrame(6, 2);
-        game.addFrame(7, 3);
-        game.addFrame(10, 0);
-        game.addFrame(8, 0);
-        game.addFrame(7, 3);
+        game1.addFrame(6, 3);
+        game1.addFrame(7, 1);
+        game1.addFrame(8, 2);
+        game1.addFrame(7, 2);
+        game1.addFrame(10, 0);
+        game1.addFrame(6, 2);
+        game1.addFrame(7, 3);
+        game1.addFrame(10, 0);
+        game1.addFrame(8, 0);
+        game1.addFrame(7, 3);
 
-        game.addFrame(10); // Extra throw after strike
+        game1.addFrame(10); // Extra throw after strike
 
-        assertEquals(135, game.getTotalScore());
+        assertEquals(135, game1.getTotalScore());
     }
 
     @Test
