@@ -206,19 +206,40 @@ public class Tests {
     public void realGameTest () {
         Game game = new Game();
 
-        game.addFrame(6,3);
-        game.addFrame(7,1);
-        game.addFrame(8,2);
-        game.addFrame(7,2);
-        game.addFrame(10,0);
-        game.addFrame(6,2);
-        game.addFrame(7,3);
-        game.addFrame(10,0);
-        game.addFrame(8,0);
-        game.addFrame(7,3);
+        game.addFrame(6, 3);
+        game.addFrame(7, 1);
+        game.addFrame(8, 2);
+        game.addFrame(7, 2);
+        game.addFrame(10, 0);
+        game.addFrame(6, 2);
+        game.addFrame(7, 3);
+        game.addFrame(10, 0);
+        game.addFrame(8, 0);
+        game.addFrame(7, 3);
 
         game.addFrame(10); // Extra throw after strike
 
         assertEquals(135, game.getTotalScore());
+    }
+
+    @Test
+    //@Ignore
+    public void bonusStrikeTest() {
+        Game game = new Game();
+
+        game.addFrame(1,5);
+        game.addFrame(3,6);
+        game.addFrame(7,2);
+        game.addFrame(3,6);
+        game.addFrame(4,4);
+        game.addFrame(5,3);
+        game.addFrame(3,3);
+        game.addFrame(4,5);
+        game.addFrame(8,1);
+        game.addFrame(2,8);
+
+        game.addFrame(10,0);
+
+        assertEquals(93, game.getTotalScore());
     }
 }
