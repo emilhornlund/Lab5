@@ -25,6 +25,18 @@ class Game {
         return true;
     }
 
+    boolean addFrame(int extraThrow) {
+        if (this.frames.size() != 10 && !this.frames.get(this.frames.size() - 2).isSpare()) {
+            return false;
+        }
+
+        frames.add(new Frame(extraThrow));
+
+        this.calculateTotalScore();
+
+        return true;
+    }
+
     private void calculateTotalScore() {
         if(!this.frames.get(this.frames.size() - 1).isStrike()) {
             this.totalScore += this.frames.get(this.frames.size() - 1).getScore();
@@ -35,7 +47,10 @@ class Game {
                 int index = getNumberOfStrikesInARow();
                 this.totalScore += calculateScoreToAddAfterStrikes(index);
             } else if (this.frames.get(this.frames.size() - 2).isSpare()) {
-                this.totalScore += this.frames.get(this.frames.size() - 1).getThrowAt(0);
+
+                if(!this.frames.get(this.frames.size() - 1).isExtraThrow()) {
+                    this.totalScore += this.frames.get(this.frames.size() - 1).getThrowAt(0);
+                }
             }
         }
     }
