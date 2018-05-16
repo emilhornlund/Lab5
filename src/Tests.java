@@ -4,6 +4,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 public class Tests {
+
+    /*
     @Test
     //@Ignore
     public void knockedDownPinsTest() {
@@ -242,7 +244,7 @@ public class Tests {
 
         assertEquals(93, game.getTotalScore());
     }
-
+    */
     @Test
     //@Ignore
     public void bestScoreTest () {
