@@ -175,8 +175,29 @@ public class Tests {
         game.addFrame(8,1);
         game.addFrame(2,8);
 
-        game.addFrame(7);
+        game.addFrame(7); // Extra throw after spare
 
         assertEquals(90, game.getTotalScore());
+    }
+
+    @Test
+    //@Ignore
+    public void lastStrikeTest () {
+        Game game = new Game();
+
+        game.addFrame(1,5);
+        game.addFrame(3,6);
+        game.addFrame(7,2);
+        game.addFrame(3,6);
+        game.addFrame(4,4);
+        game.addFrame(5,3);
+        game.addFrame(3,3);
+        game.addFrame(4,5);
+        game.addFrame(8,1);
+        game.addFrame(10,0);
+
+        game.addFrame(7, 2); // Extra throw after strike
+
+        assertEquals(92, game.getTotalScore());
     }
 }
