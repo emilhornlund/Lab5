@@ -146,6 +146,8 @@ public class Tests {
 
         game.addFrame(8,2);
         game.addFrame(5,5);
+        game.addFrame(7,2);
+        game.addFrame(3,6);
         game.addFrame(4,4);
         game.addFrame(5,3);
         game.addFrame(3,3);

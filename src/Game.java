@@ -32,7 +32,7 @@ class Game {
 
         if(this.frames.size() > 1) {
             if (this.frames.get(this.frames.size() - 2).isStrike()) {
-                int index = getNumberrOfStrikesInARow();
+                int index = getNumberOfStrikesInARow();
                 this.totalScore += calculateScoreToAddAfterStrikes(index);
             } else if (this.frames.get(this.frames.size() - 2).isSpare()) {
                 this.totalScore += this.frames.get(this.frames.size() - 1).getThrowAt(0);
@@ -69,7 +69,7 @@ class Game {
         return scoreToAdd;
     }
 
-    private int getNumberrOfStrikesInARow() {
+    private int getNumberOfStrikesInARow() {
         int index = this.frames.size() - 2;
         while (this.frames.get(index).isStrike() && index > 0) {
             index--;
