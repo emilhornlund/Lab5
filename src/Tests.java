@@ -6,6 +6,7 @@ import org.junit.Test;
 public class Tests {
     @Test
     //@Ignore
+    // 1. Frame
     public void knockedDownPinsTest() {
         Game game = new Game();
         assertTrue(game.addFrame(2, 4));
@@ -14,6 +15,7 @@ public class Tests {
 
     @Test
     //@Ignore
+    // 2. Frame score
     public void sumOfFrameScoreTest() {
         Game game = new Game();
 
@@ -26,6 +28,7 @@ public class Tests {
 
     @Test
     //@Ignore
+    // 3. Game
     public void numberOfFramesTest() {
         Game game = new Game();
 
@@ -47,6 +50,7 @@ public class Tests {
 
     @Test
     //@Ignore
+    // 4. Game Score
     public void gameScoreTest() {
         Game game = new Game();
 
@@ -66,6 +70,7 @@ public class Tests {
 
     @Test
     //@Ignore
+    // 5. Strike
     public void strikeTest() {
 
         // Test single strike at beginning
@@ -104,6 +109,7 @@ public class Tests {
 
     @Test
     //@Ignore
+    // 6. Spare
     public void spareTest() {
 
         // Test spare in the beginning of game
@@ -141,6 +147,7 @@ public class Tests {
 
     @Test
     //@Ignore
+    // 8. Multiple strikes
     public void multipleStrikesTest() {
 
         // Test multiple strikes
@@ -179,6 +186,7 @@ public class Tests {
 
     @Test
     //@Ignore
+    // 7. Strike and spare
     public void strikeAndSpareTest() {
 
         // Test strike and spare at beginning
@@ -217,6 +225,7 @@ public class Tests {
 
     @Test
     //@Ignore
+    // 9. Multiple Spares
     public void multipleSpareTest() {
         // Test multiple spares in beginning of game
         Game game = new Game();
@@ -253,6 +262,7 @@ public class Tests {
 
     @Test
     //@Ignore
+    // 10. Spare as the last frame
     public void lastSpareTest () {
         Game game = new Game();
 
@@ -274,6 +284,7 @@ public class Tests {
 
     @Test
     //@Ignore
+    // 11. Strike as the last frame
     public void lastStrikeTest () {
         Game game = new Game();
 
@@ -304,7 +315,7 @@ public class Tests {
         game2.addFrame(3,3);
         game2.addFrame(4,5);
         game2.addFrame(8,1);
-        game2.addFrame(10,2);
+        game2.addFrame(6,2);
 
         game2.addFrame(7,2); //this should not be possible, ignore frame
 
@@ -313,6 +324,7 @@ public class Tests {
 
     @Test
     //@Ignore
+    // 14. Real game
     public void realGameTest () {
         Game game1 = new Game();
 
@@ -334,6 +346,7 @@ public class Tests {
 
     @Test
     //@Ignore
+    //12. Bonus is a strike
     public void bonusStrikeTest() {
         Game game = new Game();
 
@@ -355,6 +368,7 @@ public class Tests {
 
     @Test
     //@Ignore
+    // 13. Best score
     public void bestScoreTest () {
         Game game = new Game();
 
